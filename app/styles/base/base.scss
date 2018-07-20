@@ -1,0 +1,198 @@
+/*
+**
+** Global level CSS
+** 
+*/
+
+@import 'typography';
+@import 'variables';
+@import './bootstrap/bootstrap.scss';
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    /* Support for all WebKit browsers.  */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome.  */
+    text-rendering: optimizeLegibility;
+    /* Support for Firefox.  */
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for IE.  */
+    font-feature-settings: 'liga';
+    -ms-font-feature-settings: 'liga';
+}
+
+body {
+    background: $body-background;
+    font-family: SFUI-Regular;
+    .content.container-fluid {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+.container {
+    max-width: 98% !important;
+    &.splash-screen {
+        max-width: 1200px !important;
+    }
+    @media only screen and (min-width: 1824px) {
+        max-width: 80% !important;
+    }
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.lowercase {
+    text-transform: lowercase;
+}
+
+button.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.dd-base {
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        padding-right: 30px;
+        cursor: pointer;
+        border: none;
+        background: $white;
+        width: 100%;
+    }
+    select::-ms-expand {
+        display: none;
+    }
+    i {
+        float: right;
+        color: $grey;
+        position: relative;
+        bottom: 30px;
+        right: 5px;
+        cursor: pointer;
+        pointer-events: none;
+    }
+}
+
+.cards-row {
+    margin-bottom: 32px;
+    min-height: 195px;
+    .horiz-row {
+        display: -webkit-box;
+        .not-found-label {
+            font-size: 27px;
+            font-family: SFUI-SemiBold;
+            color: grey;
+            padding: 5% 40%;
+        }
+    }
+    .card-component .card-content {
+        text-align: center;
+        min-height: 88px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    #sidebar-section {
+        min-width: 80px;
+        @media (max-width: 768px) {
+            min-width: 0px;
+        }
+    }
+    #main-content-section {
+        margin: 0 auto;
+        transition: all 0.5s;
+        width: 100%;
+        &.active {
+            margin-left: 182px;
+            @media (max-width: 768px) {
+                margin-left: 300px;
+                margin-right: -300px;
+            }
+        }
+    }
+}
+
+.section-label {
+    margin-bottom: 16px;
+    color: $grey;
+    font-family: SFUI-Bold;
+    font-size: 18px;
+}
+
+.react-loader {
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -64px;
+        margin-left: -64px;
+    }
+}
+
+.btn {
+    border: 1px solid $light-grey;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.8);
+}
+
+.form-control:focus {
+    border-color: #CED4DA;
+    box-shadow: none;
+    border-width: 2px;
+}
+
+.submit-btn {
+    color: $white;
+    background: $active-blue;
+}
+
+.scrollbar-wrapper {
+    padding-left: 1px;
+}
+
+.react-searchbar {
+    text-align: center;
+    height: 36px;
+    input {
+        width: 100%;
+        margin: 16px 10px;
+        padding: 8px;
+        border: 1px solid #CCC;
+        border-radius: 4px;
+    }
+    i.material-icons {
+        position: absolute;
+        bottom: 48px;
+        right: 28px;
+        float: right;
+        color: $grey;
+    }
+}

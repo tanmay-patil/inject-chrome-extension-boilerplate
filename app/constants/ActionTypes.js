@@ -1,14 +1,8 @@
-export const ENABLE_EDITOR = "ENABLE_EDITOR";
-export const DISABLE_EDITOR = "DISABLE_EDITOR";
-export const UPDATE_ACTIVE_TAB_ID = "UPDATE_ACTIVE_TAB_ID";
-export const ADD_CHANGE = "ADD_CHANGE";
-export const EDIT_CHANGE = "EDIT_CHANGE";
-export const ADD_SELECTOR = "ADD_SELECTOR";
-export const RESET_SELECTORS = "RESET_SELECTORS";
-export const DELETE_CHANGE = "DELETE_CHANGE";
-export const SAVE_CSS = "SAVE_CSS";
-export const SELECT_ELEMENT = "SELECT_ELEMENT";
-export const SET_INTERACTIVEMODE = "SET_INTERACTIVEMODE";
-export const EDITING_TEXT = "EDITING_TEXT";
-export const OPEN_CHANGE_DRAWER = "OPEN_CHANGE_DRAWER";
-export const CLOSE_CHANGE_DRAWER = "CLOSE_CHANGE_DRAWER";
+/* export const ADD_TODO = 'ADD_TODO';
+export const DELETE_TODO = 'DELETE_TODO';
+export const EDIT_TODO = 'EDIT_TODO';
+export const COMPLETE_TODO = 'COMPLETE_TODO';
+export const COMPLETE_ALL = 'COMPLETE_ALL';
+export const CLEAR_COMPLETED = 'CLEAR_COMPLETED'; */
+
+export const CHANGE_COMPONENT_MODE = 'Change component mode';

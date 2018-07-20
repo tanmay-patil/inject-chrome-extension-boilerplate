@@ -61,17 +61,19 @@ const baseDevConfig = () => ({
                         }
                     }
                 ]
-            }, {
-                test: /\.svg$/,
-                use: [
-                    {
-                        loader: 'babel-loader'
-                    },
-                    {
-                        loader: 'react-svg-loader',
-                    }
-                ]
-            }
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                loader: "file-loader?name=assets/images/[name].[ext]"
+            },
+            {
+                test: /\.mp3$/,
+                use: [{ loader: 'url-loader?limit=15000&name=media/[hash].[ext]' }]
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{ loader: 'url-loader?limit=15000&name=fonts/[hash].[ext]' }]
+            },
         ]
     }
 });

@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import "./app.scss";
-import Test from "../components/Test/";
+import { Login } from "../components/Login/";
 
 class App extends PureComponent {
 
@@ -8,8 +8,7 @@ class App extends PureComponent {
 
     return (
       <div className="app">
-        App Test
-        <Test />
+        <Login />
       </div>
     );
   }

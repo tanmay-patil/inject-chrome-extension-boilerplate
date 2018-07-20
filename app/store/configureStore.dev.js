@@ -1,27 +1,34 @@
-import { applyMiddleware, createStore, compose } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "../reducers";
-import storage from "../utils/storage";
+import { createStore } from "redux";
+import rootReducer from "../reducers/index";
 
-// If Redux DevTools Extension is installed use it, otherwise use Redux compose
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-  ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-      // Options: http://zalmoxisus.github.io/redux-devtools-extension/API/Arguments.html
-    })
-  : compose;
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-const enhancer = composeEnhancers(applyMiddleware(thunk), storage());
+export default store;
 
-export default function(initialState) {
-  const store = createStore(rootReducer, initialState, enhancer);
+// import { applyMiddleware, createStore, compose } from "redux";
+// import thunk from "redux-thunk";
+// import rootReducer from "../reducers";
+// import storage from "../utils/storage";
 
-  if (module.hot) {
-    module.hot.accept("../reducers", () => {
-      const nextRootReducer = require("../reducers");
+// // If Redux DevTools Extension is installed use it, otherwise use Redux compose
+// /* eslint-disable no-underscore-dangle */
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+//   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+//       // Options: http://zalmoxisus.github.io/redux-devtools-extension/API/Arguments.html
+//     })
+//   : compose;
 
-      store.replaceReducer(nextRootReducer);
-    });
-  }
-  return store;
-}
+// const enhancer = composeEnhancers(applyMiddleware(thunk), storage());
+
+// export default function(initialState) {
+//   const store = createStore(rootReducer, initialState, enhancer);
+
+//   if (module.hot) {
+//     module.hot.accept("../reducers", () => {
+//       const nextRootReducer = require("../reducers");
+
+//       store.replaceReducer(nextRootReducer);
+//     });
+//   }
+//   return store;
+// }

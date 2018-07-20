@@ -1,6 +1,7 @@
-import { combineReducers } from "redux";
-import editors from "./editors";
+import { combineReducers } from 'redux';
+
+import { FormReducer } from "./formReducer";
 
 export default combineReducers({
-  editors
+  form: FormReducer,
 });
