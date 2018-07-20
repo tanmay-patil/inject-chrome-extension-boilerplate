@@ -1,0 +1,48 @@
+{
+  "version": "0.0.2",
+  "name": "Visual Editor",
+  "manifest_version": 2,
+  "description": "Funnel Envy",
+  "browser_action": {
+    "default_title": "Visual Editor"
+  },
+  "icons": {
+    "16": "img/icon-16.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/create-store.bundle.js",
+      "js/background.bundle.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "css": [],
+      "js": [
+        "js/editor-content.bundle.js"
+      ]
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "*://backstage.funnelenvy.com/*"
+    ]
+  },
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "management",
+    "tabs",
+    "storage",
+    "cookies",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_security_policy": "default-src 'self'; script-src 'self'; style-src * 'unsafe-inline'; img-src 'self' data:;"
+}
