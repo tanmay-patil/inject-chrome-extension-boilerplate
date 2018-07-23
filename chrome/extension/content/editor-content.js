@@ -4,12 +4,14 @@ import Root from "../../../app/content/containers/Root";
 import store from '../../../app/store/configureStore.dev';
 import "../../../app/styles/base/base.scss";
 
+const containerID = 'tribyl-chrome-extension-inject';
+
 // Message Listener function
 chrome.runtime.onMessage.addListener((request, sender, response) => {
   // If message is injectApp
   if (request.injectApp) {
 
-    if (document.getElementById('tribyl-chrome-extension-inject') === null) {
+    if (document.getElementById(containerID) === null) {
       console.log("INJECTING PAGE NOW !");
       // Inject our app to DOM and send response
       injectApp();
@@ -18,32 +20,23 @@ chrome.runtime.onMessage.addListener((request, sender, response) => {
       });
     }
     else {
-      let element = document.getElementById('tribyl-chrome-extension-inject');
-      element.parentNode.removeChild(element);
-      console.log("REMOVING INJECTED CONTENT");
+      closeExtension();
     }
-
 
   }
 });
 
-// chrome.storage.local.get('state', (obj) => {
-//   const { state } = obj;
-//   const initialState = JSON.parse(state || '{}');
-
-//   const createStore = require('../../app/store/configureStore');
-
-//   ReactDOM.render(
-//     <Root store={createStore(initialState)} />,
-//     document.querySelector('#tribyl-chrome-extension-inject')
-//   );
-// });
+export const closeExtension = () => {
+  let element = document.getElementById(containerID);
+  element.parentNode.removeChild(element);
+  console.log("REMOVING INJECTED CONTENT");
+}
 
 
 function injectApp() {
 
   const anchor = document.createElement("div");
-  anchor.id = "tribyl-chrome-extension-inject";
+  anchor.id = containerID;
 
   const createStore = require('../../../app/store/configureStore')
 
@@ -51,7 +44,7 @@ function injectApp() {
 
   ReactDOM.render(
     <Root store={store} />,
-    document.querySelector("#tribyl-chrome-extension-inject")
+    document.querySelector(`#${containerID}`)
   );
 }
 
